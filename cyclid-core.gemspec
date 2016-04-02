@@ -7,4 +7,6 @@ Gem::Specification.new do |s|
   s.authors     = ['Kristian Van Der Vliet']
   s.email       = 'vanders@liqwyd.com'
   s.files       = Dir.glob('lib/**/*') + %w(LICENSE README.md)
+
+  s.add_runtime_dependency('rack', '~> 1.6.0')
 end
