@@ -1,12 +1,8 @@
 # Development artifacts
 vendor
 .bundle
-*.db
-.yardoc
-doc
-dump.rdb
 *.swp
-coverage
+pkg
 
 # OS artifacts
 .DS_Store
