@@ -4,7 +4,7 @@ begin
   require 'bundler/setup'
 end
 
-require 'rubygems-tasks'
+require 'rubygems/tasks'
 Gem::Tasks.new
 
 begin
