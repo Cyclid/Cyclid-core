@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'cyclid-core'
   s.version     = '0.1.0'
-  s.license     = 'Apache-2.0'
+  s.licenses    = ['MIT', 'Apache-2.0']
   s.summary     = 'Core files for Cyclid'
   s.description = 'Core files (shared between the Client & Server) for Cyclid'
   s.authors     = ['Kristian Van Der Vliet']
