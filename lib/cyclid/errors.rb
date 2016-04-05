@@ -34,6 +34,23 @@ module Cyclid
         # API plugin request failed
         PLUGIN_ERROR = 20
       end
+
+      # Human readable error strings
+      ERROR_MESSAGES = {
+        HTTPErrors::NO_ERROR => 'Success',
+        HTTPErrors::INTERNAL_ERROR => 'Internal error',
+        HTTPErrors::INVALID_JSON => 'The JSON in the request body could not be parsed',
+        HTTPErrors::AUTH_FAILURE => 'Invalid username or password, or not an admin',
+        HTTPErrors::DUPLICATE => 'Entry already exists',
+        HTTPErrors::INVALID_USER => 'User does not exist',
+        HTTPErrors::INVALID_ORG => 'Organization does not exist',
+        HTTPErrors::INVALID_STAGE => 'Stage does not exist',
+        HTTPErrors::INVALID_ACTION => 'No plugin found for the given action',
+        HTTPErrors::INVALID_JOB => 'Job definition is incorrect or does not exist',
+        HTTPErrors::INVALID_PLUGIN => 'Requested plugin does not exist',
+        HTTPErrors::INVALID_PLUGIN_CONFIG => 'Could not get a configuration for the given plugin',
+        HTTPErrors::PLUGIN_ERROR => 'API plugin request failed',
+      }
     end
 
     # Internal exceptions
