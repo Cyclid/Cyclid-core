@@ -28,7 +28,7 @@ module Cyclid
         JobStatus::FAILING => 'Failing',
         JobStatus::SUCCEEDED => 'Succeeded',
         JobStatus::FAILED => 'Failed'
-      }
+      }.freeze
 
       # Other one-off constants
       #

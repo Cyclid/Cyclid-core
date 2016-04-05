@@ -49,8 +49,8 @@ module Cyclid
         HTTPErrors::INVALID_JOB => 'Job definition is incorrect or does not exist',
         HTTPErrors::INVALID_PLUGIN => 'Requested plugin does not exist',
         HTTPErrors::INVALID_PLUGIN_CONFIG => 'Could not get a configuration for the given plugin',
-        HTTPErrors::PLUGIN_ERROR => 'API plugin request failed',
-      }
+        HTTPErrors::PLUGIN_ERROR => 'API plugin request failed'
+      }.freeze
     end
 
     # Internal exceptions
