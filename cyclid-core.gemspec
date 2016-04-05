@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = 'Core files (shared between the Client & Server) for Cyclid'
   s.authors     = ['Kristian Van Der Vliet']
   s.email       = 'vanders@liqwyd.com'
-  s.files       = Dir.glob('lib/**/*') + %w(LICENSE README.md)
+  s.files       = Dir.glob('lib/**/*') + %w(LICENSE README)
 
   s.add_runtime_dependency('rack', '~> 1.6')
 end
