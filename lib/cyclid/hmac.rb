@@ -61,7 +61,7 @@ module Cyclid
       # @option default_opts [Hash]               :extra_auth_params ({}) Additional parameters to inject in the auth parameter
       # @option default_opts [Array<Symbol>]      :ignore_params ([]) Params to ignore for signing
       #
-      def initialize(algorithm = 'sha1', default_opts = {})
+      def initialize(algorithm = 'sha256', default_opts = {})
         self.algorithm = algorithm
         default_opts[:nonce_header] ||= 'X-%{scheme}-Nonce' % { scheme: (default_opts[:auth_scheme] || 'HMAC') }
         default_opts[:alternate_date_header] ||= 'X-%{scheme}-Date' % { scheme: (default_opts[:auth_scheme] || 'HMAC') }
