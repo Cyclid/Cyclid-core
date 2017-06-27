@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'cyclid-core'
-  s.version     = '0.1.1'
+  s.version     = '0.2.0'
   s.licenses    = ['MIT', 'Apache-2.0']
   s.summary     = 'Core files for Cyclid'
   s.description = 'Core files (shared between the Client & Server) for Cyclid'
@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
   s.files       = Dir.glob('lib/**/*') + %w(LICENSE README.md)
 
   s.add_runtime_dependency('rack', '~> 1.6')
+  s.add_runtime_dependency('activesupport', '~> 4.2')
 end

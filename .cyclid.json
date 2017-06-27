@@ -1,69 +1,89 @@
 {
+   "name" : "Cyclid-core",
+   "environment" : {
+      "os" : "ubuntu_trusty",
+      "repos": [
+        {
+          "url": "ppa:brightbox/ruby-ng"
+        }
+      ],
+      "packages" : [
+         "ruby2.3",
+         "ruby2.3-dev",
+         "build-essential",
+         "git"
+      ]
+   },
    "stages" : [
       {
+         "name" : "bundle-install",
          "steps" : [
             {
                "action" : "command",
-               "cmd" : "sudo gem2.0 install bundler --no-ri --no-doc"
+               "cmd" : "sudo gem install bundler --no-ri --no-doc"
             },
             {
                "path" : "%{workspace}/Cyclid-core",
                "action" : "command",
                "cmd" : "bundle install --path vendor/bundle"
             }
-         ],
-         "name" : "bundle-install"
+         ]
       },
       {
+         "name" : "lint",
          "steps" : [
             {
                "cmd" : "bundle exec rake rubocop",
                "path" : "%{workspace}/Cyclid-core",
                "action" : "command"
             }
-         ],
-         "name" : "lint"
+         ]
       },
       {
+         "name" : "build",
          "steps" : [
             {
                "cmd" : "bundle exec rake build",
                "path" : "%{workspace}/Cyclid-core",
                "action" : "command"
             }
-         ],
-         "name" : "build"
+         ]
+      },
+      {
+        "name": "success",
+        "steps": [
+          {
+            "action" : "slack",
+            "subject" : "%{job_name} succeeded",
+            "message" : "Build %{organization}/%{job_name} (job #%{job_id}) completed successfully."
+          }
+        ]
+      },
+      {
+        "name": "failure",
+        "steps": [
+          {
+            "action" : "slack",
+            "subject" : "%{job_name} failed",
+            "message" : "Build %{organization}/%{job_name} (job #%{job_id}) failed.",
+            "color" : "danger"
+          }
+        ]
       }
    ],
-   "environment" : {
-      "packages" : [
-         "ruby2.0",
-         "ruby2.0-dev"
-      ],
-      "os" : "ubuntu_trusty"
-   },
-   "name" : "Cyclid-core",
    "sequence" : [
       {
          "stage" : "bundle-install",
-         "on_success" : "lint",
          "on_failure" : "failure"
       },
       {
          "stage" : "lint",
-         "on_success" : "test",
          "on_failure" : "failure"
       },
       {
-         "on_success" : "success",
          "stage" : "build",
+         "on_success" : "success",
          "on_failure" : "failure"
-      },
-      {
-         "stage" : "success"
-      },
-      {
-         "stage" : "failure"
       }
    ]
 }
