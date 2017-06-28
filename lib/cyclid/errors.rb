@@ -72,6 +72,17 @@ module Cyclid
       # Base class for all internal Cyclid exceptions
       class CyclidError < StandardError
       end
+
+      # Object was not found
+      class NotFoundError < CyclidError
+      end
+
+      # Object is invalid
+      class InvalidObjectError < CyclidError
+      end
+
+      class InternalError < CyclidError
+      end
     end
   end
 end
